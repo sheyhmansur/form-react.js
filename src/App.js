@@ -8,10 +8,6 @@ const App = () => {
   const [emailDirty, setEmailDirty] = useState(false);
   const [emailError, setEmailError] = useState("Email не может быть пустым");
   const [formValid, setFormValid] = useState(false);
-  // const [password, setPassword] = useState("");
-  // const [passwordDirty, setPasswordDirty] = useState(false);
-  // const [passwordError, setPasswordError] = useState("Пароль не может быть пустым");
-  // emailDirty - другое состояние, которая означает были мы внутри инпута или нет. По умолчанию будет false, но как только коснемся инпута - должны будем делать его уже true
 
   useEffect(() => {
     if (emailError || nameError) {
@@ -43,19 +39,6 @@ const App = () => {
     }
   };
 
-  // const passwordHandler = (e) => {
-  //   setPassword(e.target.value);
-  //   if (e.target.value.length < 3 || e.target.value.length > 8) {
-  //     setPasswordError("Пароль должен быть длиннее 3 и меньше 8");
-  //     if (!e.target.value) {
-  //       setPasswordError("Пароль не может быть пустым!");
-  //     }
-  //   } else {
-  //     setPasswordError("");
-  //   }
-  // };
-
-  // Этот event срабатывает в тот момент, когда пользователь покинул поле ввода, т.е убрал курсор из инпута
   const blurHandler = (e) => {
     switch (e.target.name) {
       case "name":
@@ -90,17 +73,9 @@ const App = () => {
           type="text"
           placeholder="Введите ваш email..."
         />
-        {/* {passwordDirty && passwordError && <div style={{ color: "red" }}>{passwordError}</div>}
-        <input
-          onChange={(e) => passwordHandler(e)}
-          value={password}
-          onBlur={(e) => blurHandler(e)}
-          name="password"
-          type="password"
-          placeholder="Введите ваш номер телефона"
-        /> */}
+
         <button disabled={!formValid} type="submit">
-          registartion
+          Зарегистрироваться
         </button>
       </form>
     </div>
