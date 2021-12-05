@@ -11,8 +11,6 @@ const App = () => {
   const [phoneDirty, setPhoneDirty] = useState(false);
   const [phoneError, setPhoneError] = useState("Поле обязательно для заполнения");
   const [checked, setChecked] = useState(false);
-  const [checkedDirty, setCheckedDirty] = useState(false);
-  const [checkedError, setCheckedError] = useState("Поставьте галочку");
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
