@@ -7,15 +7,18 @@ const App = () => {
   const [email, setEmail] = useState("");
   const [emailDirty, setEmailDirty] = useState(false);
   const [emailError, setEmailError] = useState("Email не может быть пустым");
+  const [phone, setPhone] = useState("");
+  const [phoneDirty, setPhoneDirty] = useState(false);
+  const [phoneError, setPhoneError] = useState("Поле обязательно для заполнения");
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    if (emailError || nameError) {
+    if (emailError || nameError || phoneError) {
       setFormValid(false);
     } else {
       setFormValid(true);
     }
-  }, [emailError, nameError]);
+  }, [nameError, emailError, phoneError]);
 
   const nameHandler = (e) => {
     setName(e.target.value);
@@ -39,6 +42,17 @@ const App = () => {
     }
   };
 
+  const phoneHandler = (e) => {
+    setPhone(e.target.value);
+    setPhoneError("Заполните пожалуйста!");
+    e.target.value = e.target.value.replace(/[^\d\s\+\()]/g, "");
+    if (!e.target.value) {
+      setPhoneError("Заполните пожалуйста!");
+    } else {
+      setPhoneError("");
+    }
+  };
+
   const blurHandler = (e) => {
     switch (e.target.name) {
       case "name":
@@ -47,6 +61,8 @@ const App = () => {
       case "email":
         setEmailDirty(true);
         break;
+      case "phone":
+        setPhoneDirty(true);
     }
   };
 
@@ -73,7 +89,16 @@ const App = () => {
           type="text"
           placeholder="Введите ваш email..."
         />
-
+        {phoneDirty && phoneError && <div style={{ color: "red" }}>{phoneError}</div>}
+        <input
+          onChange={(e) => phoneHandler(e)}
+          onInput={(e) => phoneHandler(e)}
+          value={phone}
+          onBlur={(e) => blurHandler(e)}
+          name="phone"
+          type="text"
+          placeholder="Введите ваш номер телефона"
+        />
         <button disabled={!formValid} type="submit">
           Зарегистрироваться
         </button>
