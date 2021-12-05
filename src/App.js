@@ -10,15 +10,18 @@ const App = () => {
   const [phone, setPhone] = useState("");
   const [phoneDirty, setPhoneDirty] = useState(false);
   const [phoneError, setPhoneError] = useState("Поле обязательно для заполнения");
+  const [checked, setChecked] = useState(false);
+  const [checkedDirty, setCheckedDirty] = useState(false);
+  const [checkedError, setCheckedError] = useState("Поставьте галочку");
   const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
-    if (emailError || nameError || phoneError) {
+    if (emailError || nameError || phoneError || !checked) {
       setFormValid(false);
     } else {
       setFormValid(true);
     }
-  }, [nameError, emailError, phoneError]);
+  }, [nameError, emailError, phoneError, checked]);
 
   const nameHandler = (e) => {
     setName(e.target.value);
@@ -44,13 +47,19 @@ const App = () => {
 
   const phoneHandler = (e) => {
     setPhone(e.target.value);
-    setPhoneError("Заполните пожалуйста!");
+
     e.target.value = e.target.value.replace(/[^\d\s\+\()]/g, "");
+    console.log(e.target.value.length);
+
     if (!e.target.value) {
       setPhoneError("Заполните пожалуйста!");
     } else {
       setPhoneError("");
     }
+  };
+
+  const checkedHandler = () => {
+    setChecked(!checked);
   };
 
   const blurHandler = (e) => {
@@ -63,6 +72,10 @@ const App = () => {
         break;
       case "phone":
         setPhoneDirty(true);
+        break;
+      case "checkbox":
+        setCheckedDirty(true);
+        break;
     }
   };
 
@@ -97,8 +110,18 @@ const App = () => {
           onBlur={(e) => blurHandler(e)}
           name="phone"
           type="text"
+          maxLength="12"
           placeholder="Введите ваш номер телефона"
         />
+        <select>
+          <option style={{ display: "none" }}>Язык</option>
+          <option value="">Русский</option>
+          <option value="">Английский</option>
+          <option value="">Китайский</option>
+          <option value="">Испанский</option>
+        </select>
+
+        <input onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" />
         <button disabled={!formValid} type="submit">
           Зарегистрироваться
         </button>
