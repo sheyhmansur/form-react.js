@@ -12,11 +12,9 @@ function Form() {
   const [phoneError, setPhoneError] = useState("Поле обязательно для заполнения");
   const [checked, setChecked] = useState(false);
   const [formValid, setFormValid] = useState(false);
-
-  // dropdown
   const [isActive, setIsActive] = useState(false);
-  const options = ["Русский", "Английский", "Китайский", "Испанский"];
   const [selected, setSelected] = useState("Язык");
+  const options = ["Русский", "Английский", "Китайский", "Испанский"];
 
   useEffect(() => {
     if (emailError || nameError || phoneError || !checked) {
@@ -151,7 +149,20 @@ function Form() {
           )}
         </div>
         {/* DROPDOWN */}
-        <input className="form__checkbox" onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" />
+
+        {/* <input className="form__checkbox" onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" /> */}
+
+        <input
+          type="checkbox"
+          className="custom-checkbox"
+          onChange={checkedHandler}
+          checked={checked}
+          id="happy"
+          name="happy"
+          value="yes"
+        />
+        <label htmlFor="happy">fdgfdfgfdgd</label>
+
         <button className="form__btn" disabled={!formValid} type="submit">
           Зарегистрироваться
         </button>
