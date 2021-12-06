@@ -135,8 +135,9 @@ function Form() {
           </div>
           {isActive && (
             <div className="dropdown__content">
-              {options.map((option) => (
+              {options.map((option, index) => (
                 <div
+                  key={index}
                   onClick={(e) => {
                     setSelected(option);
                     setIsActive(false);

@@ -58,10 +58,11 @@ body {
       width: 400px;
       padding: 16px 0px 16px 15px;
       margin-top: 7px;
-      background: #ffffff;
+      background-color: #fff;
       border: 1px solid #dbe2ea;
       box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
       border-radius: 6px;
+      color: #2c2738;
       &::placeholder {
         font-weight: 400;
         font-size: 16px;
@@ -83,35 +84,7 @@ body {
       font-size: 16px;
       color: #756f86;
     }
-    &__select {
-      width: 400px;
-      margin: 0 auto;
-      margin-top: 7px;
-      margin-bottom: 40px;
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      appearance: none;
-      outline: none;
-      background: #ffffff;
-      border: 1px solid #dbe2ea;
-      font-weight: 400;
-      font-size: 16px;
-      color: #7c9cbf;
-      border-radius: 6px;
-      padding: 16px 0px 16px 15px;
-      background-image: url("./icons/arrow_down.svg");
-      background-repeat: no-repeat, repeat;
-      background-position: right 21px top 50%, 0 0;
-      background-size: 16px auto, 100%;
-      cursor: pointer;
-      &:focus {
-        border: 2px solid #0880ae;
-        box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
-      }
-      &::-ms-expand {
-        display: none;
-      }
-    }
+
     &__checkbox {
       margin-top: 31px;
     }
@@ -119,6 +92,7 @@ body {
       width: 350px;
       height: 30px;
       margin: 0 auto;
+      cursor: pointer;
     }
   }
 }
@@ -151,12 +125,14 @@ body {
     &:focus {
       border: 2px solid #0880ae;
       box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
+      color: #2c2738;
     }
   }
   &__content {
     position: absolute;
     top: 110%;
     left: 0;
+    padding: 12px 0px 12px 0px;
     background: #fff;
     font-weight: 500;
     border: 1px solid #dbe2ea;
