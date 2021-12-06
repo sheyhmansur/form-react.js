@@ -15,7 +15,7 @@ function Form() {
 
   // dropdown
   const [isActive, setIsActive] = useState(false);
-  const options = ["React", "Vue", "Angular"];
+  const options = ["Русский", "Английский", "Китайский", "Испанский"];
   const [selected, setSelected] = useState("Язык");
 
   useEffect(() => {
