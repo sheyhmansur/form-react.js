@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import arrow from "./icons/arrow_down.svg";
 function Form() {
   const [name, setName] = useState("");
   const [nameDirty, setNameDirty] = useState(false);
@@ -12,6 +12,11 @@ function Form() {
   const [phoneError, setPhoneError] = useState("Поле обязательно для заполнения");
   const [checked, setChecked] = useState(false);
   const [formValid, setFormValid] = useState(false);
+
+  // dropdown
+  const [isActive, setIsActive] = useState(false);
+  const options = ["React", "Vue", "Angular"];
+  const [selected, setSelected] = useState("Язык");
 
   useEffect(() => {
     if (emailError || nameError || phoneError || !checked) {
@@ -121,16 +126,32 @@ function Form() {
         />
         {phoneDirty && phoneError && <div style={{ color: "red" }}>{phoneError}</div>}
         <label className="form__label">Язык</label>
-        <select className="form__select">
-          <option style={{ display: "none" }}>Язык</option>
-          <option value="">Русский</option>
-          <option value="">Английский</option>
-          <option value="">Китайский</option>
-          <option value="">Испанский</option>
-        </select>
+        {/* DROPDOWN */}
 
-        <input onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" />
-        <button disabled={!formValid} type="submit">
+        <div className="dropdown">
+          <div tabIndex="0" className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
+            {selected}
+            <img src={arrow} width="16px" height="9px" alt="" />
+          </div>
+          {isActive && (
+            <div className="dropdown__content">
+              {options.map((option) => (
+                <div
+                  onClick={(e) => {
+                    setSelected(option);
+                    setIsActive(false);
+                  }}
+                  className="dropdown__item"
+                >
+                  {option}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        {/* DROPDOWN */}
+        <input className="form__checkbox" onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" />
+        <button className="form__btn" disabled={!formValid} type="submit">
           Зарегистрироваться
         </button>
       </form>
