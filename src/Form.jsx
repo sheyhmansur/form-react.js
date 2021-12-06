@@ -75,8 +75,8 @@ function Form() {
   };
 
   return (
-    <div className="form">
-      <form>
+    <div className="wrapper">
+      <form className="form">
         <h1 className="form__title">Регистрация</h1>
         <div className="form__descr">
           Уже есть аккаунт?{" "}
@@ -84,7 +84,7 @@ function Form() {
             Войти
           </a>
         </div>
-
+        <label className="form__label">Имя</label>
         <input
           className="form__input"
           onChange={(e) => nameHandler(e)}
@@ -96,6 +96,7 @@ function Form() {
           placeholder="Введите ваше имя..."
         />
         {nameDirty && nameError && <div style={{ color: "red" }}>{nameError}</div>}
+        <label className="form__label">Email</label>
         <input
           className="form__input"
           onChange={(e) => emailHandler(e)}
@@ -106,6 +107,7 @@ function Form() {
           placeholder="Введите ваш email..."
         />
         {emailDirty && emailError && <div style={{ color: "red" }}>{emailError}</div>}
+        <label className="form__label">Номер телефона</label>
         <input
           className="form__input"
           onChange={(e) => phoneHandler(e)}
@@ -118,8 +120,8 @@ function Form() {
           placeholder="Введите ваш номер телефона"
         />
         {phoneDirty && phoneError && <div style={{ color: "red" }}>{phoneError}</div>}
-
-        <select>
+        <label className="form__label">Язык</label>
+        <select className="form__select">
           <option style={{ display: "none" }}>Язык</option>
           <option value="">Русский</option>
           <option value="">Английский</option>
