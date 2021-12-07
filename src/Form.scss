@@ -6,6 +6,7 @@
 
 body {
   margin: 0;
+  padding: 0;
   min-height: 100vh;
   // background-color: #e5e5e5;
   background: linear-gradient(#ddddff, #dfd6fa, #cfcaee);
@@ -89,11 +90,22 @@ body {
       margin-top: 31px;
     }
     &__btn {
-      width: 350px;
-      height: 30px;
-      margin: 0 auto;
+      padding: 18px 121px 17px 121px;
       cursor: pointer;
       margin-top: 36px;
+      font-weight: 500;
+      font-size: 16px;
+      text-align: center;
+      color: #ebf4f8;
+      background: #0880ae;
+      box-shadow: 0px 2px 4px rgba(44, 39, 56, 0.08), 0px 4px 8px rgba(44, 39, 56, 0.08);
+      border-radius: 6px;
+      border: none;
+      &:disabled {
+        color: #b1b5bf;
+        background: #dbe2ea;
+        border: none;
+      }
     }
   }
 
@@ -153,6 +165,12 @@ body {
 
   // Checkbox
 
+  .inner {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 36px;
+  }
+
   .custom-checkbox {
     position: absolute;
     z-index: -1;
@@ -162,8 +180,8 @@ body {
     display: inline-flex;
     align-items: center;
     user-select: none;
-    margin-top: 36px;
     width: 28px;
+    margin-right: 10px;
     cursor: pointer;
   }
   .custom-checkbox + label::before {
@@ -207,5 +225,15 @@ body {
   /* стили для чекбокса, находящегося в состоянии disabled */
   .custom-checkbox:disabled + label::before {
     background-color: #e9ecef;
+  }
+
+  .policy {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    color: #756f86;
+    a {
+      color: #0880ae;
+    }
   }
 }

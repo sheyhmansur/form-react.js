@@ -151,18 +151,21 @@ function Form() {
         {/* DROPDOWN */}
 
         {/* <input className="form__checkbox" onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" /> */}
-
-        <input
-          type="checkbox"
-          className="custom-checkbox"
-          onChange={checkedHandler}
-          checked={checked}
-          id="happy"
-          name="happy"
-          value="yes"
-        />
-        <label htmlFor="happy"></label>
-        <label>fdofkldfkl</label>
+        <div className="inner">
+          <input
+            type="checkbox"
+            className="custom-checkbox"
+            onChange={checkedHandler}
+            checked={checked}
+            id="happy"
+            name="happy"
+            value="yes"
+          />
+          <label htmlFor="happy"></label>
+          <label className="policy">
+            Принимаю <a href="#">условия</a> использования
+          </label>
+        </div>
 
         <button className="form__btn" disabled={!formValid} type="submit">
           Зарегистрироваться
