@@ -3,13 +3,13 @@ import arrow from "./icons/arrow_down.svg";
 function Form() {
   const [name, setName] = useState("");
   const [nameDirty, setNameDirty] = useState(false);
-  const [nameError, setNameError] = useState("Поле ввода не должно быть пустым!");
+  const [nameError, setNameError] = useState("Поле ввода не должно быть пустым");
   const [email, setEmail] = useState("");
   const [emailDirty, setEmailDirty] = useState(false);
-  const [emailError, setEmailError] = useState("Email не может быть пустым");
+  const [emailError, setEmailError] = useState("Поле ввода не должно быть пустым");
   const [phone, setPhone] = useState("");
   const [phoneDirty, setPhoneDirty] = useState(false);
-  const [phoneError, setPhoneError] = useState("Поле обязательно для заполнения");
+  const [phoneError, setPhoneError] = useState("Поле ввода не должно быть пустым");
   const [checked, setChecked] = useState(false);
   const [formValid, setFormValid] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -40,7 +40,7 @@ function Form() {
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     if (!re.test(String(e.target.value).toLocaleLowerCase())) {
-      setEmailError("Некорректный email");
+      setEmailError("Введено не корректное значение");
     } else {
       setEmailError("");
     }
@@ -96,9 +96,9 @@ function Form() {
           onBlur={(e) => blurHandler(e)}
           name="name"
           type="text"
-          placeholder="Введите ваше имя..."
+          placeholder="Введите ваше имя"
         />
-        {nameDirty && nameError && <div style={{ color: "red" }}>{nameError}</div>}
+        {nameDirty && nameError && <span className="error">{nameError}</span>}
         <label className="form__label">Email</label>
         <input
           className="form__input"
@@ -107,9 +107,9 @@ function Form() {
           onBlur={(e) => blurHandler(e)}
           name="email"
           type="text"
-          placeholder="Введите ваш email..."
+          placeholder="Введите ваш email"
         />
-        {emailDirty && emailError && <div style={{ color: "red" }}>{emailError}</div>}
+        {emailDirty && emailError && <span className="error">{emailError}</span>}
         <label className="form__label">Номер телефона</label>
         <input
           className="form__input"
@@ -122,7 +122,7 @@ function Form() {
           maxLength="12"
           placeholder="Введите ваш номер телефона"
         />
-        {phoneDirty && phoneError && <div style={{ color: "red" }}>{phoneError}</div>}
+        {phoneDirty && phoneError && <span className="error">{phoneError}</span>}
         <label className="form__label">Язык</label>
         {/* DROPDOWN */}
 
