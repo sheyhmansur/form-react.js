@@ -2,21 +2,13 @@
   font-family: "IBM Plex Sans", sans-serif;
   text-decoration: none;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
-  // background-color: #e5e5e5;
   background: linear-gradient(#ddddff, #dfd6fa, #cfcaee);
-  // background: #83a4d4; /* fallback for old browsers */
-  // background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4); /* Chrome 10-25, Safari 5.1-6 */
-  // background: linear-gradient(
-  //   to right,
-  //   #b6fbff,
-  //   #83a4d4
-  // ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .wrapper {
@@ -56,8 +48,7 @@ body {
     }
 
     &__input {
-      width: 400px;
-      padding: 16px 0px 16px 15px;
+      padding: 16px 97px 16px 15px;
       margin-top: 7px;
       background-color: #fff;
       border: 1px solid #dbe2ea;
@@ -155,6 +146,7 @@ body {
       box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04), 0px 20px 20px rgba(44, 39, 56, 0.04);
       border-radius: 6px;
       width: 100%;
+      min-height: 200px;
     }
     &__item {
       padding: 11px 0px 11px 16px;
@@ -169,18 +161,18 @@ body {
 
   // Checkbox
 
-  .inner {
+  .label-wrapper {
     display: flex;
     align-items: flex-end;
     margin-top: 36px;
   }
 
-  .custom-checkbox {
+  .checkbox {
     position: absolute;
     z-index: -1;
     opacity: 0;
   }
-  .custom-checkbox + label {
+  .checkbox + label {
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -188,7 +180,7 @@ body {
     margin-right: 10px;
     cursor: pointer;
   }
-  .custom-checkbox + label::before {
+  .checkbox + label::before {
     content: "";
     display: inline-block;
     width: 24px;
@@ -202,36 +194,20 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .custom-checkbox:checked + label::before {
+  .checkbox:checked + label::before {
     border: 2px solid #0880ae;
     box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.04);
     border-radius: 4px;
-    // background-color: #0b76ef;
     background-image: url("./icons/checked.svg");
   }
-  /* стили при наведении курсора на checkbox */
-  .custom-checkbox:not(:disabled):not(:checked) + label:hover::before {
+  .checkbox:not(:disabled):not(:checked) + label:hover::before {
     border-color: #0880ae;
   }
-  // /* стили для активного состояния чекбокса (при нажатии на него) */
-  // .custom-checkbox:not(:disabled):active + label::before {
-  //   background-color: #b3d7ff;
-  //   border-color: #b3d7ff;
-  // }
-  // /* стили для чекбокса, находящегося в фокусе */
-  // .custom-checkbox:focus + label::before {
-  //   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-  // }
-  /* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
-  // .custom-checkbox:focus:not(:checked) + label::before {
-  //   border-color: #80bdff;
-  // }
-  /* стили для чекбокса, находящегося в состоянии disabled */
-  .custom-checkbox:disabled + label::before {
+  .checkbox:disabled + label::before {
     background-color: #e9ecef;
   }
 
-  .policy {
+  .conditions-use {
     font-weight: 500;
     font-size: 16px;
     line-height: 25px;
