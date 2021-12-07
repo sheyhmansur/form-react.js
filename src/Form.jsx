@@ -28,7 +28,7 @@ function Form() {
     setName(e.target.value);
     e.target.value = e.target.value.replace(/[0-9\+\=\\/``\*]|\./, "");
     if (!e.target.value) {
-      setNameError("Поле обязательно для заполнения");
+      setNameError("Вы не заполнили это поле");
     } else {
       setNameError("");
     }
@@ -50,10 +50,9 @@ function Form() {
     setPhone(e.target.value);
 
     e.target.value = e.target.value.replace(/[^\d\s\+\()]/g, "");
-    console.log(e.target.value.length);
 
     if (!e.target.value) {
-      setPhoneError("Заполните пожалуйста!");
+      setPhoneError("Вы не заполнили это поле");
     } else {
       setPhoneError("");
     }
@@ -124,7 +123,6 @@ function Form() {
         />
         {phoneDirty && phoneError && <span className="error">{phoneError}</span>}
         <label className="form__label">Язык</label>
-        {/* DROPDOWN */}
 
         <div className="dropdown">
           <div tabIndex="0" className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
@@ -148,9 +146,7 @@ function Form() {
             </div>
           )}
         </div>
-        {/* DROPDOWN */}
 
-        {/* <input className="form__checkbox" onChange={checkedHandler} checked={checked} name="checkbox" type="checkbox" /> */}
         <div className="label-wrapper">
           <input
             type="checkbox"
