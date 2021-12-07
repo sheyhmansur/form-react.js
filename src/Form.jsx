@@ -28,7 +28,7 @@ function Form() {
     setName(e.target.value);
     e.target.value = e.target.value.replace(/[0-9\+\=\\/``\*]|\./, "");
     if (!e.target.value) {
-      setNameError("Вы не заполнили это поле");
+      setNameError("Вы не заполнили это поле!");
     } else {
       setNameError("");
     }
