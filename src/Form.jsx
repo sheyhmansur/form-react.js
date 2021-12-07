@@ -161,7 +161,8 @@ function Form() {
           name="happy"
           value="yes"
         />
-        <label htmlFor="happy">fdgfdfgfdgd</label>
+        <label htmlFor="happy"></label>
+        <label>fdofkldfkl</label>
 
         <button className="form__btn" disabled={!formValid} type="submit">
           Зарегистрироваться
