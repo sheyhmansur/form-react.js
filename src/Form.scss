@@ -227,3 +227,20 @@ body {
     }
   }
 }
+
+@media (max-width: 380px) {
+  .title {
+    font-size: 27px;
+  }
+  .wrapper {
+    min-height: 700px;
+  }
+  .wrapper .form {
+    &__descr {
+      margin-bottom: 15px;
+    }
+    &__label {
+      margin-top: 20px;
+    }
+  }
+}
