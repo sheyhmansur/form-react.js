@@ -40,11 +40,11 @@ body {
       font-weight: 400;
       margin-top: 9px;
       margin-bottom: 24px;
-      a {
-        color: #0880ae;
-        font-weight: 400;
-        font-size: 16px;
-      }
+    }
+    &__descr-link {
+      color: #0880ae;
+      font-weight: 400;
+      font-size: 16px;
     }
 
     &__input {
@@ -102,20 +102,13 @@ body {
         border: none;
       }
     }
-    .error {
-      color: #ff7171;
-      margin-top: 8px;
-      font-size: 14px;
+    &__dropdown {
+      user-select: none;
+      margin-top: 7px;
+      position: relative;
+      outline: none;
     }
-  }
-
-  // Dropdown
-  .dropdown {
-    user-select: none;
-    margin-top: 7px;
-    position: relative;
-    outline: none;
-    &__btn {
+    &__dropdown-btn {
       padding: 16px 0px 16px 15px;
       background: #fff;
       border-radius: 6px;
@@ -138,7 +131,7 @@ body {
         color: #2c2738;
       }
     }
-    &__content {
+    &__dropdown-content {
       position: absolute;
       top: 110%;
       left: 0;
@@ -152,7 +145,7 @@ body {
       width: 100%;
       min-height: 200px;
     }
-    &__item {
+    &__dropdown-item {
       padding: 11px 0px 11px 16px;
       cursor: pointer;
       color: #7c9cbf;
@@ -161,7 +154,14 @@ body {
         background: #ebf4f8;
       }
     }
+    .error {
+      color: #ff7171;
+      margin-top: 8px;
+      font-size: 14px;
+    }
   }
+
+  // Dropdown
 
   // Checkbox
 
@@ -228,13 +228,13 @@ body {
   }
 }
 
-@media (max-width: 410px) {
-  .title {
-    font-size: 27px;
-  }
+@media (max-width: 400px) {
   .wrapper {
     min-height: 670px;
     padding: 23px 21px;
+    .title {
+      font-size: 27px;
+    }
   }
   .wrapper .form {
     &__descr {

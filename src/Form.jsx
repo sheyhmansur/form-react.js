@@ -82,7 +82,7 @@ function Form() {
         <h1 className="form__title">Регистрация</h1>
         <div className="form__descr">
           Уже есть аккаунт?{" "}
-          <a className="form__descr" href="#">
+          <a className="form__descr-link" href="#">
             Войти
           </a>
         </div>
@@ -124,13 +124,13 @@ function Form() {
         {phoneDirty && phoneError && <span className="error">{phoneError}</span>}
         <label className="form__label">Язык</label>
 
-        <div className="dropdown">
-          <div tabIndex="0" className="dropdown__btn" onClick={(e) => setIsActive(!isActive)}>
+        <div className="form__dropdown">
+          <div tabIndex="0" className="form__dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
             {selected}
             <img src={arrow} width="16px" height="9px" alt="" />
           </div>
           {isActive && (
-            <div className="dropdown__content">
+            <div className="form__dropdown-content">
               {options.map((option, index) => (
                 <div
                   key={index}
@@ -138,7 +138,7 @@ function Form() {
                     setSelected(option);
                     setIsActive(false);
                   }}
-                  className="dropdown__item"
+                  className="form__dropdown-item"
                 >
                   {option}
                 </div>
