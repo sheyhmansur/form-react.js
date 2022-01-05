@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import arrow from "./icons/arrow_down.svg";
+
 function Form() {
   const [name, setName] = useState("");
   const [nameDirty, setNameDirty] = useState(false);
@@ -148,14 +149,7 @@ function Form() {
         </div>
 
         <div className="label-wrapper">
-          <input
-            type="checkbox"
-            className=" checkbox"
-            onChange={checkedHandler}
-            checked={checked}
-            id="checkbox"
-            name="happy"
-          />
+          <input type="checkbox" className=" checkbox" onChange={checkedHandler} checked={checked} id="checkbox" />
           <label htmlFor="checkbox"></label>
           <label className="conditions-use">
             Принимаю <a href="#">условия</a> использования
